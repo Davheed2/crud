@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import { useWallet } from '@solana/wallet-adapter-react'
-import { WalletButton } from '../solana/solana-provider'
-import { AppHero, ellipsify } from '../ui/ui-layout'
-import { ExplorerLink } from '../cluster/cluster-ui'
-import { useCrud2Program } from './crud2-data-access'
-import { Crud2Create, Crud2List } from './crud2-ui'
+import { useWallet } from "@solana/wallet-adapter-react";
+import { WalletButton } from "../solana/solana-provider";
+import { AppHero, ellipsify } from "../ui/ui-layout";
+import { ExplorerLink } from "../cluster/cluster-ui";
+import { useCrud2Program } from "./crud2-data-access";
+import { Crud2Create, Crud2List } from "./crud2-ui";
 
 export default function Crud2Feature() {
-  const { publicKey } = useWallet()
-  const { programId } = useCrud2Program()
+  const { publicKey } = useWallet();
+  const { programId } = useCrud2Program();
 
   return publicKey ? (
     <div>
@@ -20,7 +20,10 @@ export default function Crud2Feature() {
         }
       >
         <p className="mb-6">
-          <ExplorerLink path={`account/${programId}`} label={ellipsify(programId.toString())} />
+          <ExplorerLink
+            path={`account/${programId}`}
+            label={ellipsify(programId.toString())}
+          />
         </p>
         <Crud2Create />
       </AppHero>
@@ -34,5 +37,5 @@ export default function Crud2Feature() {
         </div>
       </div>
     </div>
-  )
+  );
 }
